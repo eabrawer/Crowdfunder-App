@@ -1,6 +1,25 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
+gem 'pg'
+
+group :tools do
+	gem 'guard-rspec'
+end
+
+group :development do
+	gem 'guard-rspec' #autiomattically runs tests whenever there have been changes mad to them
+	gem 'better_errors'
+	gem 'binding_of_caller'
+	gem 'pry-rails'
+end
+
+group :test do 
+  gem 'rspec-rails', '~> 2.0' # using rspec instead of test unit
+  gem "factory_girl_rails" 
+  gem "capybara" # needed for our integration tests, which we'll talk about more later
+end
+
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -23,7 +42,7 @@ end
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
@@ -35,4 +54,4 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'debugger'
+gem 'debugger'
