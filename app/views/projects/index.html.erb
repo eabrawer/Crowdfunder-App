@@ -1,12 +1,4 @@
 <h1>Listing projects</h1>
-<nav class="navbar">
-	<ul>
-		<li class="active">
-			<%= link_to "Home", projects_url %>
-			<%= link_to "Projects", projects_url %>			
-		</li>
-	</ul>
 	<% @projects.each do |project| %>
 		<%= link_to project.title, project %><br />
 	<% end %>
-</nav>
