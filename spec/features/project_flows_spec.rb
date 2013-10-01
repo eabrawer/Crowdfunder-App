@@ -3,11 +3,15 @@ require 'spec_helper'
 describe "Project Listing" do
   describe "when visiting the index page" do
 
+    before do 
+      @project1 = FactoryGirl.create(:project, :title => "Project 1")
+      @project2 = FactoryGirl.create(:project, :title => "Project 2")
+      @project3 = FactoryGirl.create(:project, :title => "Project 3")
+    end
+   
     it "should display all projects" do
       # Create three projects
-      project1 = FactoryGirl.create(:project, :title => "Project 1")
-      project2 = FactoryGirl.create(:project, :title => "Project 2")
-      project3 = FactoryGirl.create(:project, :title => "Project 3")
+      
 
       # Go to the page with the projects
       visit "/projects"
@@ -48,14 +52,15 @@ describe "Project Listing" do
       expect(page).to have_selector('.navbar ul li.active a', text: "Projects")
     end    
 
-      it "should display all projects" do
+    it "should display all projects" do
+      visit "/projects"
       # Click a link to the project1's show page
       click_link('Project 1')
       # Expect we're on project1's show page
-      expect(current_path).to eq(project_path(project1))
+      expect(current_path).to eq(project_path(@project1))
       # Expect on this page the first h1 has the text project1's title
-      page.should have_selector('h1:first', text: project1.title)
-      expect(page).to have_selector('h1:first', text: project1.title)
+      page.should have_selector('h1:first', text: @project1.title)
+      expect(page).to have_selector('h1:first', text: @project1.title)
     end
     
   end
