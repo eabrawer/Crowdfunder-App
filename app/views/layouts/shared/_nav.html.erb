@@ -1,3 +1,5 @@
+
+
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
@@ -10,7 +12,15 @@
           <li class="<%= 'active' if current_page? projects_path %>">
             <%= link_to 'Projects', :projects %>
           </li>
+            <div class="pull-right">
+             <% if logged_in? %>
+               <%= link_to 'Logout', '#', class: 'btn' %>
+             <% else %>
+              <%= link_to 'Sign Up', [:new, :user], class: 'btn btn-primary' %>
+             <% end %>
+            </div>
         </ul>
+
       </div>
     </div>
   </div>

@@ -8,7 +8,11 @@ class ProjectsController < ApplicationController
   end
 
   # def new
-  # 	@project = Project.new(params[:id])
+  # 	@project = Project.new 
+  # end
+
+  # def create
+  #   @project = Project.new 
   # end
 
   # def edit
