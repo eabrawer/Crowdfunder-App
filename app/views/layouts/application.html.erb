@@ -17,11 +17,11 @@
     <% if flash[:notice] %>
    		<%= flash[:notice] %>
     <% end %>
-    <div class="alert">    
-      <% if flash[:alert] %>
-    	 <%= flash[:alert] %>
-      <% end %>
-    </div>
+    <% if flash[:alert] %>
+      <div class="alert">    
+      	 <%= flash[:alert] %>
+      </div>
+    <% end %>
 
 </body>
 </html>
