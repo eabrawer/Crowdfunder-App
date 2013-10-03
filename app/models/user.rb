@@ -4,10 +4,13 @@ class User < ActiveRecord::Base
   :password_confirmation
 
   has_many :projects
+  has_many :pledges
 
   validates :first_name, :last_name, :email, presence: true
   validates :password, presence: true, on: :create
   validates :password, confirmation: true
   
   validates :email, uniqueness: true
+
+
 end

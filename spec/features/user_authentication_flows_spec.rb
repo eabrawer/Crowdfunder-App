@@ -8,9 +8,11 @@ describe "User Authentication" do
       expect(current_path).to eq(new_user_path)
 
       # Expect there is a link in the nav to Sign Up
-      within(:css, '.navbar') do
-        find_link("Sign Up").visible?
-      end
+      # within(:css, '.navbar') do
+        # find_link("Sign Up").visible?
+      # end
+
+      expect(find(".navbar")).to have_content("Sign Up")
 
       user = FactoryGirl.build(:user) 
 
@@ -57,7 +59,7 @@ it "should successfully log in" do
       find('.navbar').has_no_link?('Logout').should be_true
       # Calling the helper method here, and it returns a user
       user = setup_signed_in_user
-      find('.navbar').has_link?('Logout').should be_true
+      expect(find('.navbar')).to have_content('Logout')
     end
 
     it "should unsuccessfully log in" do
@@ -80,7 +82,6 @@ it "should successfully log in" do
       visit '/'
 
       find('.navbar').click_link 'Logout'
-
       page.should have_content("Bye")
       expect(page).to have_content("Bye")
 

@@ -13,7 +13,8 @@ class UsersController < ApplicationController
   		auto_login(@user)
   		redirect_to root_path, :notice => "Account created"
   	else
-  		render "new", :notice => "Try again"
+      flash.now[:notice] = "Try again"
+  		render "new"
   	end
   end
 
